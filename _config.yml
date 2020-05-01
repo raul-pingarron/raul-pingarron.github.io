@@ -1,2 +1,3 @@
-remote_theme: tzuehlke/jekyll-uno-timeline
+#remote_theme: tzuehlke/jekyll-uno-timeline
 title: Raul Pingarron en GitHub
+markdown: kramdown
