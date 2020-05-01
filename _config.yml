@@ -1,2 +1,3 @@
 title: Raul Pingarron en GitHub
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
