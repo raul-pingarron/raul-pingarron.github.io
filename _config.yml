@@ -29,3 +29,8 @@ kramdown:
   input: GFM
   # do not replace newlines by <br>s
   hard_wrap: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
