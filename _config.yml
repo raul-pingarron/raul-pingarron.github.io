@@ -29,5 +29,3 @@ kramdown:
   input: GFM
   # do not replace newlines by <br>s
   hard_wrap: false
-
-exclude: ['README.md', '.DS_Store']
