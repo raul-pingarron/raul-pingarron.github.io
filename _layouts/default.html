@@ -1,29 +1,14 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Principal</a></li>
-		        	<li><a href="/about">Acerca de</a></li>
-	        		<li><a href="/cv">CV</a></li>
-	        		<li><a href="/blog">Blog</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			{{ content }}
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-	        		<li><a href="mailto:raul_pingarron@hotmail.es">email</a></li>
-	        		<li><a href="https://github.com/raul-pingarron">github.com/raul-pingarron</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        {{ content }}
+      </div>
+      {% include footer.html %}
+    </div>
+  </body>
+</html>

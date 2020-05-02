@@ -1,0 +1,20 @@
+# projects section data
+# If you don't have language feature(language.yml is empty), ignore "i18n" items
+# Suggest projects' img be located at '/static/assets/img/landing', and edit following img items.
+- name: Artificial Intelligence
+  gh_user: raul-pingarron
+  repo: IA
+  img: /images/ai-icon.png
+  desc: Algo de Inteligencia Artificial
+
+- name: Ejemplos SCALA para SPARK
+  gh_user: raul-pingarron
+  repo: Ejemplos-SCALA-SPARK
+  img: /images/scala-spark.png
+  desc: Ejemplos de código SCAPA para ejecución sobre SPARK
+
+- name: DATATHON CAJAMAR 2017
+  gh_user: raul-pingarron
+  repo: CAJAMAR-DATATHON-2017/blob/master/DATATHON_CAJAMAR_2017.ipynb
+  img: /images/datathon-icon.png
+  desc: Visualización presentación resultado Datathon Cajamar 2017 (3er puesto)

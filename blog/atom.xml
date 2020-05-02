@@ -11,7 +11,7 @@ layout: feed
 	<id>http://raul-pingarron.github.io/blog</id>
 	<author>
 		<name>Raul Pingarron</name>
-		<email>raul_pingarron@hotmail.es</email>
+		<email>raul.ping4rr0n@gmail.com</email>
 	</author>
 
 	{% for post in site.posts %}

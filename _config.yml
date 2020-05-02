@@ -1,3 +1,34 @@
-title: Raul Pingarron en GitHub
+# Site settings
+title: Raul Pingarron
+description: 'Business Card Page'
+url: 'https://raul-pingarron.github.io'
+baseurl: ''
+profilepic: '/images/raul-pingarron.jpg'
+bkimage: '/images/AI_Abstract_05_S.jpg'
+google_analytics: UA-165302864-1
+font_awesome: '/js/all.js'
+
+author:
+  name: 'Raul Pingarron'
+  email: raul.ping4rr0n@gmail.com
+  twitter_username: rpingarron
+  github_username: raul-pingarron
+  linkedin_username: rpingarron
+
+# Build settings
+destination: _site
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
+highlighter: rouge
+
+sass:
+    sass_dir: _sass
+    style: compressed
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+#plugins: ['jekyll-paginate']
+exclude: ['README.md', '.DS_Store']
