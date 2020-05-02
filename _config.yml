@@ -30,4 +30,5 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
+permalink: /blog/:year/:month/:day/:title
 exclude: ['README.md', '.DS_Store']
