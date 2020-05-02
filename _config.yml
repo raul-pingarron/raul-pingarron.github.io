@@ -1,21 +1,19 @@
 # Site settings
-title: Thomas Zühlke
+title: Raul Pingarron
 description: 'Business Card Page'
-url: 'http://thomas.zuehlke.family'
+url: 'https://raul-pingarron.github.io'
 baseurl: ''
-profilepic: '/images/tzuehlke.jpg'
-bkimage: '/images/bk1.jpg'
-google_analytics: UA-XXXXXX-X
-font_awesome: 'XXXXXXXXXX.js'
+profilepic: '/images/raul-pingarron.jpg'
+bkimage: '/images/AI_Abstract_05_S.jpg'
+google_analytics: UA-165302864-1
+font_awesome: '/js/all.js'
 
 author:
-  name: 'Thomas Zühlke'
-  email: info@thomas-zuehlke.de
-  twitter_username: thomzuehlke
-#  facebook_username: joshgerdes
-  github_username:  tzuehlke
-  linkedin_username:  thomas-zühlke-889182165
-  meetup_name: Azure-Meetup-Rostock-MV
+  name: 'Raul Pingarron'
+  email: raul.ping4rr0n@gmail.com
+  twitter_username: rpingarron
+  github_username: raul-pingarron
+  linkedin_username: rpingarron
 
 # Build settings
 destination: _site
@@ -33,4 +31,4 @@ kramdown:
   hard_wrap: false
 
 #plugins: ['jekyll-paginate']
-exclude: ['README.md', 'screenshot-overview.png']
+exclude: ['README.md', '.DS_Store']
