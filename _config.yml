@@ -30,5 +30,5 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-#plugins: ['jekyll-paginate']
+plugins: ['jekyll-paginate']
 exclude: ['README.md', '.DS_Store']
