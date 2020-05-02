@@ -6,7 +6,7 @@ baseurl: ''
 profilepic: '/images/raul-pingarron.jpg'
 bkimage: '/images/AI_Abstract_05_S.jpg'
 google_analytics: UA-165302864-1
-font_awesome: '/js/all.js'
+font_awesome: 'https://use.fontawesome.com/releases/v5.1.0/js/all.js'
 
 author:
   name: 'Raul Pingarron'
