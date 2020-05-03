@@ -15,6 +15,22 @@ author:
   github_username: raul-pingarron
   linkedin_username: rpingarron
 
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'post'
+    values:
+        layout: 'post'
+
+
 # Build settings
 destination: _site
 markdown: kramdown
@@ -30,7 +46,7 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
+
+
+
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
