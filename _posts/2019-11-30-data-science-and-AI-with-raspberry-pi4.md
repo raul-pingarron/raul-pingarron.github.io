@@ -9,6 +9,7 @@ tags:
 ---
 In this post I’ll show how to use a Raspberri Pi 4 as a lightweight Data Science station.   
 The new board, which was released in June 2019, is based on a Broadcom BCM2711 SoC and its architecture represents a considerable upgrade on that used by the SoCs in earlier Pi models.   
+
 The new Pi 4 has a quad-core Cortex A72 64-bit CPU (ARM v8 64-bit) and the ARM cores can run up to 1.5Ghz. It also has a greatly improved GPU feaure set with much faster input/output, due to the addition of a PCIe link that connects the USB 2 and USB 3 ports, and a natively attached Gigabit Ethernet controller. There is also a new Memory Management Unit that allows the Pi 4 to access more memory than its antecesors; in fact, the Pi 4 unit I have has 4GB of main memory (LPDDR4-3200 SDRAM).   
 <p align="center">
   <img width="480" height="300" src="/images/posts/rPi4_2.jpg">
