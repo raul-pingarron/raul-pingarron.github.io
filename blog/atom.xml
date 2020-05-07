@@ -4,7 +4,7 @@ layout: default
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-	<title>Raul Pingarron's Blog</title>
+	<title>Blog entries</title>
 	<link href="http://raul-pingarron.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://raul-pingarron.github.io/blog"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
