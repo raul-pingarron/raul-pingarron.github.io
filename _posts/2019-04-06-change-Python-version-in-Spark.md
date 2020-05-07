@@ -16,11 +16,11 @@ What if we want to use a different Python version in Spark?.
 Fortunately, it is possible to install and use multiple versions of Python in Spark. It is as simple as deploying the required version of Python in both the node that runs the *driver* program, as well as in the *master* node and in all the *executor* nodes, and then use a Spark environment variable to specify which version to use.
 
 To deploy the required Python version we can, for example, install Anaconda3 on the node where we have installed the Spark client as well as on all the Spark *executor* nodes in our cluster (in this case I have installed Anaconda3 on all the nodes under `/opt/anaconda3`). 
-The installation instructions for a multi-user Anaconda installation in Linux are <a href="https://docs.anaconda.com/anaconda/install/multi-user/#multi-user-anaconda-installation-on-linux" target="_blank">here.</a>
+The installation instructions for a multi-user Anaconda Linux environment are <a href="https://docs.anaconda.com/anaconda/install/multi-user/#multi-user-anaconda-installation-on-linux" target="_blank">here.</a>
 
-In my case I did the following:   
+In my case I followed these steps:   
 
-On all the Spark *executor* nodes and the Spark client node (i.e. an edge node) I did run:
+On all the Spark *executor* nodes and the Spark client node (i.e. an edge node) I did run
 
 ```programming
  # wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
@@ -62,7 +62,7 @@ On all the Spark *executor* nodes and the Spark client node (i.e. an edge node) 
  # chgrp -R hadoop /opt/anaconda3
  # chmod 770 -R /opt/anaconda3
  ```
-On the Spark client node (i.e. an edge node) I did run:
+On the Spark client node (i.e. an edge node) I did run
  ```programming
  # usermod -G hadoop -a raul 
  # su - raul
@@ -86,9 +86,9 @@ On the Spark client node (i.e. an edge node) I did run:
  
 ```
 
-To tell Spark that we will use the Python3 version shipped with Anaconda3, we simply have to set the environment variable `PYSPARK_PYTHON` in the client node that submits the Spark job (the node where the `spark-submit` is executed from, or where the PySpark Shell is invoqued from). 
+To tell Spark that we will use the Python3 version shipped with Anaconda3, we simply have to set the environment variable `PYSPARK_PYTHON` in the client node that submits the Spark job (that is the node where the `spark-submit` is executed from, or where the PySpark Shell is started). 
 
-This can easily be achieved by adding the following to the `.bashrc`of the user's profile:   
+This can be easily achieved by adding the following to the `.bashrc`of the user's profile:   
 
 ```bash
 export PYSPARK_PYTHON="/opt/anaconda3/bin/python3"
@@ -96,7 +96,7 @@ export PYSPARK_PYTHON="/opt/anaconda3/bin/python3"
 
 For more information take a look at the official Spark documentation <a href="https://spark.apache.org/docs/latest/configuration.html#environment-variables" target="_blank">here.</a>
 
-Following our example, once Anaconda3 is installed in the required nodes and environment variable is set, we can check the result by starting the PySpark shell (you can do a `source ~/.bashrc` before to reload the user's profile):
+Following our example, once Anaconda3 has been installed in the required nodes and aforementioned environment variable has been set, we can check the result by starting the PySpark shell (do not forget to do a `source ~/.bashrc` before starting PySpark to reload the user's profile):
 
 ![PySpark Shell output](/images/posts/PySpark_shell.jpg)  
 
