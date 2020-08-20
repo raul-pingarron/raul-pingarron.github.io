@@ -11,7 +11,7 @@ In this post I’ll show how to use a Raspberry Pi 4 as a lightweight Data Scien
 The new board, which was released in June 2019, is based on a Broadcom BCM2711 SoC and its architecture represents a considerable upgrade on that used by the SoCs in earlier Pi models.   
 
 ---
-To read a Spanish Google-translated version of this post click <a href="https://translate.google.com/translate?sl=auto&tl=es&u=https%3A%2F%2Fraul-pingarron.github.io%2F2019%2F11%2F30%2Fdata-science-and-AI-with-raspberry-pi4.html" target="_blank">here</a>.
+Para leer una versión en español traducida por máquinas <a href="https://translate.google.com/translate?sl=auto&tl=es&u=https%3A%2F%2Fraul-pingarron.github.io%2F2019%2F11%2F30%2Fdata-science-and-AI-with-raspberry-pi4.html" target="_blank">pincha aquí</a>.
 
 ---   
 
