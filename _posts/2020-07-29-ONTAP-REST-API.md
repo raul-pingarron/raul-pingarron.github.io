@@ -8,10 +8,10 @@ tags:
 - Data Storage
 - DevOps
 ---
-En este post hago una breve introducción a la REST API de ONTAP con algún ejemplo práctico y sencillo utilizando el interface Swagger que se incluye dentro del GUI de ONTAP. En un siguiente post trataré de una manera programática la REST API de ONTAP a través de la librería para Python que también está disponible. 
+En este post hago una breve introducción a la REST API de ONTAP con algunos ejemplos prácticos y sencillos utilizando el interface Swagger que se incluye dentro del GUI de ONTAP. En un siguiente post trataré de una manera programática la REST API de ONTAP a través de la librería para Python que también está disponible. 
   
 ---
-To read a English Google-translated version of this post click <a href="https://translate.google.com/translate?sl=auto&tl=es&u=https%3A%2F%2Fraul-pingarron.github.io%2F2019%2F11%2F30%2Fdata-science-and-AI-with-raspberry-pi4.html" target="_blank">here</a>.
+To read a English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2020%2F07%2F29%2FONTAP-REST-API.html" target="_blank">here</a>.
 
 ---   
 
