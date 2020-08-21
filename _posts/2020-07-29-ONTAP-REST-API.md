@@ -8,14 +8,17 @@ tags:
 - Data Storage
 - DevOps
 ---
-En este post hago una breve introducción a la REST API de ONTAP con algunos ejemplos prácticos y sencillos utilizando el interface Swagger que se incluye dentro del GUI de ONTAP. En un siguiente post trataré de una manera programática la REST API de ONTAP a través de la librería para Python que también está disponible. 
+En este post hago una introducción a la REST API de ONTAP con algunos ejemplos prácticos y sencillos utilizando el interface Swagger que se incluye dentro del GUI de ONTAP. En un siguiente post trataré de una manera programática la REST API de ONTAP a través de la librería para Python que también está disponible. 
   
 ---
 To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2020%2F07%2F29%2FONTAP-REST-API.html" target="_blank">here</a>.
 
 ---   
 
-La arquitectura REST (Representational State Transfer) apareció en el año 2000 ofreciendo una alternativa sencilla y más abierta a las tecnologías existentes basadas en RPCs o SOAP. El hecho de utilizar el protocolo HTTP hace que esta tecnología permita compartir información de manera muy flexible entre una gran variedad de tipos de clientes (PCs, móviles, tabletas, etc.), servidores y software. Tanto es así que a día de hoy se ha convertido en un estándar de facto para implementar APIs o funcionalidades de intercambio de mensajes o datos utilizando un formato estandarizado y abierto (generalmente XML o JSON) entre distinto software. Por este motivo NetApp decidió apostar hace años e invertir en desarrollo de REST APIs para sus productos.   
+La arquitectura REST (Representational State Transfer) apareció en el año 2000 ofreciendo una alternativa sencilla y más abierta a las tecnologías existentes basadas en RPCs o SOAP. El hecho de utilizar el protocolo HTTP hace que esta tecnología permita compartir información de manera muy flexible entre una gran variedad de tipos de clientes (PCs, móviles, tabletas, etc.), servidores y software. Tanto es así que a día de hoy se ha convertido en un estándar de facto para implementar APIs o funcionalidades de intercambio de mensajes o datos utilizando un formato estandarizado y abierto (generalmente XML o JSON) entre distinto software. Por este motivo NetApp decidió apostar hace años e invertir en desarrollo de REST APIs para sus productos.  
+
+La REST API de ONTAP aparece en la versión 9.6; hasta entonces se venía utilizando desde hace muchos años una API propietaria (denominada ZAPI) para la que hay disponible un completo SDK. La ZAPI seguirá conviviendo durante un tiempo más en nuevas versiones de ONTAP para matener compatibilidad y soporte a desarrollos existentes.
+
 
 
 <p align="center">
@@ -23,24 +26,47 @@ La arquitectura REST (Representational State Transfer) apareció en el año 2000
 </p>   
 
 ## ¿Cómo funciona la API de ONTAP?
-Como cualquier otra API que sea RESTful:  el servidor (en este caso corriendo en ONTAP) mantiene una lista de sus recursos con su estado y sus operaciones y expone sus datos a los clientes a través de un esquema de direccionamiento bien definido (URIs o URLs). Además, estos recursos se exponen generalmente bajo una estructura jerárquica (parecida a las carpetas o directorios de un sistema de ficheros). 
-Para el intercambio de solicitudes y respuestas a los recursos expuestos, el cliente y el servidor utilizan métodos HTTP (POST, GET, PUT y DELETE) que permiten operaciones CRUD (Crear, Leer, Actualizar y Borrar). Otra de las ventajas de utilizar HTTP es que no tiene estado ya que cada petición contiene toda la información necesaria para ser ejecutada siendo independiente de otras, lo que evita mantener sesiones.
-Por último, los datos se transmiten dentro del cuerpo de cada solicitud/respuesta HTTP en formato estructurado, generalmente utilizando JSON ya que éste permite representar estructuras de datos simples en texto plano (y además es también un estándar de la industria).
+Como cualquier otra API que sea RESTful:
+1. El servidor (en este caso corriendo en ONTAP) mantiene una lista de sus recursos con su estado y sus operaciones y expone sus datos a los clientes a través de un esquema de direccionamiento bien definido (URIs o URLs). Además, estos recursos se exponen generalmente bajo una estructura jerárquica parecida a las carpetas o directorios de un sistema de ficheros. 
+2. Para el intercambio de solicitudes y respuestas a los recursos expuestos, el cliente y el servidor utilizan métodos HTTP (POST, GET, PUT y DELETE) que permiten operaciones CRUD (Crear, Leer, Actualizar y Borrar). Otra de las ventajas de utilizar HTTP es que no tiene estado ya que cada petición contiene toda la información necesaria para ser ejecutada siendo independiente de otras, lo que evita mantener sesiones.
+3. Los datos se transmiten dentro del cuerpo de cada solicitud/respuesta HTTP en formato estructurado, generalmente utilizando JSON ya que éste permite representar estructuras de datos simples en texto plano (y además es también un estándar de la industria). Por otra parte, toda respuesta HTTP viene acompañada también de un código de respuesta HTTP (el 200 significa "OK", el 400 indica una petición incorrecta, etc.). En el caso particular de La API de ONTAP, además, en caso de error se devuelve un objeto de tipo error dentro del cuerpo de la respuesta (este objeto también se presenta en formato JSON e incluye un código de error y un mensaje descriptivo del mismo).
 
+Una de las características adicionales de la API REST de ONTAP es que utiliza contenido hipermedia y soporta HAL (HyperTest Application Language) lo que significa que dentro de la respuesta JSON se pueden incluir enlaces para añadir más información sobre el objeto en cuestión (vamos a ver un ejemplo de esto un poco mas abajo).
 
-La REST API de ONTAP aparece en la versión 9.6; hasta entonces se venía utilizando desde hace muchos años una API propietaria (denominada ZAPI) para la que hay disponible un completo SDK. La ZAPI seguirá conviviendo durante un tiempo más en nuevas versiones de ONTAP para matener compatibilidad y soporte a desarrollos existentes.
+Por último, la API REST de ONTAP incluye el concepto de operaciones síncronas y asíncronas: por defecto las operaciones POST, PATCH y DELETE pueden tardar mas de 2 segundos y se consideran asíncronas y no bloqueantes. Las operaciones asíncronas se ejecutan utilizando *jobs* y siempre van a devolver dentro de su respuesta información sobre el *job* que está ejecutando la operación incluyendo un enlace HAL al recurso u objeto correspondiente dentro de la API.
 
 
 ## ¿Cómo acceder a la API de ONTAP?
 El acceso se puede realizar utilizando el Cluster Management LIF, o el Node Management LIF, o incluso el SVM Management LIF. Además, hay que tener en cuenta que todo el tráfico entre el cliente y el LIF de ONTAP utilizado para la conexión está encriptado (generalmente por TLS, según la configuración de ONTAP).
 
-Acceder a la API es tan sencillo como apuntar por HTTPS a la IP del LIF en cuestión añadiendo `/api`. Además la API está versionada por lo que si quisiésemos acceder a una versión específica utilizaríamos `/api/v1`. En el siguiente ejemplo vamos a obtener la versión de ONTAP que corre un clúster haciendo un GET (implícito) a `https://<cluster_mgmt_ip_address>/api/cluster?fields=version`
+Acceder a la API es tan sencillo como apuntar por HTTPS a la IP del LIF en cuestión añadiendo `/api`. Además la API está versionada por lo que si quisiésemos acceder a una versión específica utilizaríamos `/api/v1`. En el siguiente ejemplo vamos a obtener la versión de ONTAP que corre un clúster haciendo un GET (implícito) a `https://<cluster_mgmt_ip_address>/api/cluster?fields=version` como muestra la siguiente imagen:
 
 <p align="center">
   <img src="/images/posts/ONTAP_REST-API_1.jpg">
 </p>  
 
-La API de ONTAP tiene los recursos divididos en 16 categorías (Cloud, Cluster, Networking, SVM, SAN, NAS, Storage, etc.) y en este caso hemos accedido a la categoria "cluster" que contiene recursos como "jobs", "licensing", "metrics", "nodes", etc. Para ver la descripción de las distintas categorías y sus recursos lo mejor es consultar la documentación de la API, que además es muy detallada.
+Esta petición ha desencadenado el siguiente intercambio de información:
+
+<p align="center">
+  <img src="/images/posts/ONTAP_REST-API_comms.jpg">
+</p>  
+
+Veamos otro simple ejemplo para listar los *jobs* existentes en el clúster mediante `/api/cluster/jobs`:
+
+<p align="center">
+  <img src="/images/posts/ONTAP_REST-API_1-1.jpg">
+</p>  
+
+Según he indicado anteriormente podemos ver que la respuesta contiene un enlace HAL (el valor del objeto "self" contenido en "_links").
+Si abrimos este enlace HAL podremos obtener los detalles de ese job en particular y de la operación que se solicitó:
+
+<p align="center">
+  <img src="/images/posts/ONTAP_REST-API_1-2.jpg">
+</p>  
+
+
+La API de ONTAP tiene los recursos divididos en 16 categorías (`cloud`, `cluster`, `networking`, `SVM`, `SAN`, `NAS`, `storage`, etc.) y en este caso hemos accedido a la categoria `cluster` que a su vez contiene recursos como `/jobs`, `/metrics`, `/nodes`, etc. Para ver la descripción de las distintas categorías y sus recursos lo mejor es consultar la documentación de la API, que además es muy detallada.
+
 
 **¿Dónde está la documentación de la API?**
 
