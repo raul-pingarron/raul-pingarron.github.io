@@ -206,7 +206,7 @@ def lista_snapshots(nombre_vol, vol_uuid) -> None:
     print("\n")
 ```
 
-En vista a lo anteriore, el cuerpo principal del programa quedaría así:
+En vista a lo anterior, el cuerpo principal del programa quedaría así:
 
 ```python
 def main() -> None:
