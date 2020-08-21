@@ -39,7 +39,8 @@ Por último, la API REST de ONTAP incluye el concepto de operaciones síncronas 
 ## ¿Cómo acceder a la API de ONTAP?
 El acceso se puede realizar utilizando el Cluster Management LIF, o el Node Management LIF, o incluso el SVM Management LIF. Además, hay que tener en cuenta que todo el tráfico entre el cliente y el LIF de ONTAP utilizado para la conexión está encriptado (generalmente por TLS, según la configuración de ONTAP).
 
-Acceder a la API es tan sencillo como apuntar por HTTPS a la IP del LIF en cuestión añadiendo `/api`. Además la API está versionada por lo que si quisiésemos acceder a una versión específica utilizaríamos `/api/v1`. En el siguiente ejemplo vamos a obtener la versión de ONTAP que corre un clúster haciendo un GET (implícito) a `https://<cluster_mgmt_ip_address>/api/cluster?fields=version` como muestra la siguiente imagen:
+Acceder a la API es tan sencillo como apuntar por HTTPS a la IP del LIF en cuestión añadiendo `/api`. Además la API está versionada por lo que si quisiésemos acceder a una versión específica utilizaríamos `/api/v1`.    
+En el siguiente ejemplo vamos a obtener la versión de ONTAP que corre un clúster haciendo un GET (implícito) a `https://<cluster_mgmt_ip_address>/api/cluster?fields=version` como muestra la siguiente imagen:
 
 <p align="center">
   <img src="/images/posts/ONTAP_REST-API_1.jpg">
@@ -80,7 +81,7 @@ No obstante, también es posible acceder a la documentación online de la API de
 
 ## El interface Swagger 
 Una de las formas mas sencillas y visuales para acceder a la REST API de ONTAP y realizar operaciones CRUD es a través del interface Swagger que proporciona la gestión Web del clúster de ONTAP. Lo único necesario para ello es autenticarse haciendo clic en el botón de "login" y utilizar la operación correspondiente dentro de la categoría de recursos necesaria.
-Por ejemplo, para listar los volúmenes de un determinado SVM de nuestro clúster iremos a la categoría `STORAGE` y desplegamos la operación `GET /storage/volumes` en el interfaz Swagger. 
+Por ejemplo, para listar los volúmenes de un determinado SVM de nuestro clúster iremos a la categoría `storage` y desplegamos la operación **GET /storage/volumes** en el interfaz Swagger. 
 
 <p align="center">
   <img src="/images/posts/ONTAP_REST-API_3-1.jpg">
@@ -105,7 +106,7 @@ Y ejecutamos la llamada de la API:
   <img src="/images/posts/ONTAP_REST-API_3-4.jpg">
 </p>  
 
-Una de las cosas muy útiles que nos va a devolver el interfaz es la llamada a la API que tendríamos que utilizar si quisiésemos operar con CURL, junto a la URL/URI completa para la petición que acabamos de hacer:
+Una de las cosas muy útiles que nos va a devolver el interfaz es la llamada a la API que tendríamos que utilizar si quisiésemos operar con **CURL**, junto a la URL/URI completa para la petición que acabamos de hacer:
 
 <p align="center">
   <img src="/images/posts/ONTAP_REST-API_3-5.jpg">
