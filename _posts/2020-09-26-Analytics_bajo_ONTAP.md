@@ -1,7 +1,7 @@
 ---
 layout: post
 type: posts
-title: Big Data Analytics en ONTAP
+title: Big Data Analytics con ONTAP
 date: '2020-09-26T10:17:32.000+01:00'
 author: Raul Pingarron
 tags:
@@ -21,7 +21,7 @@ HDFS es uno de estos ejemplos.
   <img width="480" height="300" src="/images/posts/Commodity_meme.png">
 </p>
 
-Uno de problemas a los que se enfrenta un sistema distribuido (sea de cómputo y de almacenamiento) son los efectos adversos e imprevisibles derivados del rendimiento y la latencia de la red de comunicaciones, así como la complejidad que implica una paralelización efectiva y eficiente. Para mitigar o evitar este tipo de circunstancias, HDFS cambió el paradigma en el modelo de acceso y procesamiento al dato ya que proporcionaba una serie de interfaces de localización que permitían "mover la computación donde se encuentran los datos" y no al revés como tradicionalmente se venía haciendo. Esto ha venido repitiéndose como un mantra desde entonces y ha hecho que cale la percepción de que una solución de almacenamiento compartido tradicional (como los sistemas de almacenamiento centralizados basados en NFS) era demasiado lenta y poco escalable para soportar este tipo de cargas de trabajo (y razón no faltaba en la época cuando Hadoop vió la luz).
+Uno de problemas a los que se enfrenta un sistema distribuido (sea de cómputo o de almacenamiento) son los efectos adversos e imprevisibles derivados del rendimiento y la latencia de la red de comunicaciones, así como la complejidad que implica una paralelización efectiva y eficiente. Para mitigar o evitar este tipo de circunstancias, HDFS cambió el paradigma en el modelo de acceso y procesamiento al dato ya que proporcionaba una serie de interfaces de localización que permitían "mover la computación donde se encuentran los datos" y no al revés como tradicionalmente se venía haciendo. Esto ha venido repitiéndose como un mantra desde entonces y ha hecho que cale la percepción de que una solución de almacenamiento compartido tradicional (como los sistemas de almacenamiento centralizados basados en NFS) era demasiado lenta y poco escalable para soportar este tipo de cargas de trabajo (y razón no faltaba en la época cuando Hadoop vió la luz).
 
 Sin embargo con el paso del tiempo las cargas de trabajo en el mundo de la analítica del dato de nueva generación han ido evolucionando y ya no solamente es necesario un elevado ancho de banda para soportar las analíticas orientadas a batch o los ETLs y las agregaciones masivas sino que también es necesario soportar modelos de procesamiento en tiempo real, en modo interactivo, así como soportar los flujos de trabajo que requieren las iniciativas de Inteligencia Artificial y sus pipelines de datos completos de principio a fin. 
 Esto cambia radicalmente el perfil del almacenamiento ya que estas nuevas necesidades requieren sistemas de almacenamiento de muy baja latencia, capaces de procesar mucha E/S aleatoria además de mantener elevadas tasas de ancho de banda (E/S secuencial), sin olvidar la escalabilidad en capacidad y permitiendo además la E/S concurrente sin penalización por el tipo de operación a miles de millones de ficheros, objetos y datos estructurados, semiestructurados o no estructurados.
@@ -39,8 +39,12 @@ Con el paso del tiempo, ONTAP y WAFL han ido evolucionando convirtiéndose en un
   <img src="/images/posts/ONTAP_overview.jpg">
 </p>
 
-En la actualidad un clúster de ONTAP puede escalar hasta 24 controladoras o nodos y es capaz de ofrecer cientos de GB/s de ancho de banda, decenas de millones de IOPs de rendimiento a muy baja latencia y cientos de Petabytes de capacidad. De hecho, uno de los aspectos más importantes de la arquitectura de ONTAP es que ha roto con ese mantra de décadas pasadas: ya no es más rápido mover el cómputo hacia el dato, por fin nos podemos permitir seguir moviendo el dato hacia el cómputo y beneficiarnos de bastantes de ventajas y funcionalidades que hasta ahora no eran posibles de otra manera.
+En la actualidad un clúster de ONTAP puede escalar hasta 24 controladoras o nodos y es capaz de ofrecer cientos de GB/s de ancho de banda, decenas de millones de IOPs de rendimiento a muy baja latencia y cientos de Petabytes de capacidad. De hecho, uno de los aspectos más importantes de la arquitectura de ONTAP es que ha roto con ese mantra de décadas pasadas: ya no es más rápido mover el cómputo hacia el dato, por fin nos podemos permitir seguir moviendo el dato hacia el cómputo y beneficiarnos de bastantes de ventajas y funcionalidades que hasta ahora no eran posibles de otra manera.   
+Un pipeline de datos de Analytics/AI de principio con a fin podría ser, a muy alto nivel, como sigue: 
 
+<p align="center">
+  <img src="/images/posts/ONTAP_AI_pipeline.jpg">
+</p>
 
 ## ¿Qué beneficios aporta ONTAP?
    
