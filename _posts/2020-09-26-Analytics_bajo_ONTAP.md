@@ -40,7 +40,7 @@ Con el paso del tiempo, ONTAP y WAFL han ido evolucionando convirtiéndose en un
 </p>
 
 En la actualidad un clúster de ONTAP puede escalar hasta 24 controladoras o nodos y es capaz de ofrecer cientos de GB/s de ancho de banda, decenas de millones de IOPs de rendimiento a muy baja latencia y cientos de Petabytes de capacidad. De hecho, uno de los aspectos más importantes de la arquitectura de ONTAP es que ha roto con ese mantra de décadas pasadas: ya no es más rápido mover el cómputo hacia el dato, por fin nos podemos permitir seguir moviendo el dato hacia el cómputo y beneficiarnos de bastantes de ventajas y funcionalidades que hasta ahora no eran posibles de otra manera.   
-Un pipeline de datos de Analytics/AI de principio con a fin podría ser, a muy alto nivel, como sigue: 
+Un pipeline de datos de Analytics/AI de principio  a fin con NetApp podría ser, a muy alto nivel, como sigue: 
 
 <p align="center">
   <img src="/images/posts/ONTAP_AI_pipeline.jpg">
