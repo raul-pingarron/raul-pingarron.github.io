@@ -145,7 +145,7 @@ A partir de la versión 9.7 de ONTAP la tecnología de FlexGroup tiene bastantes
 
 
 
-### Consideraciones con NFSv4 y pNFS
+### Consideraciones con NFS versión 4
 Hay que tener en cuenta que el ''Domain ID'' de NFSv4 debe de tener el mismo valor en todos los nodos así como en el SVM de ONTAP.
 Para ello nos aseguramos de que el parámetro `Domain =` en el `/etc/idmapd.conf` de todos los nodos *worker* es el mismo. De la misma manera, en el SVM de ONTAP fijamos el ''Domain ID'' de NFSv4 mediante el comando `nfs modify -vserver <vserver_name> -v4-iddomain <domain_name>` o bien lo cambiamos en el GUI (System Manager).   
 
