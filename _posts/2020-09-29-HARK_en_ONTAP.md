@@ -19,7 +19,7 @@ To read a (bad) English Google-translated version of this post click <a href="ht
 Probablemente al lector esto le pueda parecer una idea un tanto extraña ya que la primera impresión es que NFS no parece ser un protocolo de almacenamiento de alto rendimiento y, además, incluso en algunos foros especializados ha sido denostado utilizando razonamientos inapropiados, obsoletos realmente si consideramos el actual estado del arte de las tecnologías de redes y comunicaciones (en mi <a href="https://raul-pingarron.github.io/2020/09/26/Analytics_bajo_ONTAP.html" target="_blank">anterior post</a> trato este tema específicamente). 
 
 Lo primero que tenemos que saber es que el acceso a un filesystem NFS en ONTAP desde Hadoop MapReduce o Spark es perfectamente posible al utilizar la <a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/fs/FileSystem.html" target="_blank">clase FileSystem</a>, y más en concreto la sub-clase <a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/fs/FileSystem.html" target="_blank">LocalFileSystem,</a> que implementa el acceso a un sistema de ficheros genérico en un disco local (y que tradicionalmente se había utilizado para instancias pequeñas o de test para Hadoop y Spark).   
-Para utilizar esta clase y poder acceder a cualquier conjunto de datos que se encuentre en el *LocalFileSystem* se utiliza el URI de tipo `file:///` y lo único que tendremos que hacer es asegurarnos de que hay una copia del conjunto de datos en cada nodo worker. Esto último con NFS es muy simple: basta con montar el filesystem remoto en cada uno de los nodos workers sobre el mismo punto de montaje.
+Para utilizar esta clase y poder acceder a cualquier conjunto de datos que se encuentre en el *LocalFileSystem* se utiliza el URI de tipo `file:///`, y lo único que es necesario es asegurarse de que hay una copia del conjunto de datos en cada nodo worker. Esto último, gracias a NFS, es muy simple: basta con montar el filesystem remoto en cada uno de los nodos worker sobre el mismo punto de montaje.
 
 #### ¿Y qué hay de la "localidad" del dato? 
 Los interfaces de localización seguirán funcionando igual y, aunque no se utilizan las réplicas de bloques como ocurre en HDFS para aumentar el paralelismo, todos los bloques y ficheros están "igual de cerca" del worker.
@@ -145,7 +145,7 @@ A partir de la versión 9.7 de ONTAP la tecnología de FlexGroup tiene bastantes
 
 
 
-### Consideraciones con NFSv4 y pNFS
+### Consideraciones con NFS versión 4
 Hay que tener en cuenta que el ''Domain ID'' de NFSv4 debe de tener el mismo valor en todos los nodos así como en el SVM de ONTAP.
 Para ello nos aseguramos de que el parámetro `Domain =` en el `/etc/idmapd.conf` de todos los nodos *worker* es el mismo. De la misma manera, en el SVM de ONTAP fijamos el ''Domain ID'' de NFSv4 mediante el comando `nfs modify -vserver <vserver_name> -v4-iddomain <domain_name>` o bien lo cambiamos en el GUI (System Manager).   
 
