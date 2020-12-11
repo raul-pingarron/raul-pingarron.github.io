@@ -10,7 +10,7 @@ tags:
 En este post vamos a ver cómo utilizar StorageGRID de NetApp como almacenamiento de datos para entornos Hadoop y Spark y, así, desacoplar el cómputo del almacenamiento en nuestra plataforma de analytics. En la actualidad, el protocolo S3 se ha convertido en un estándar de facto gracias a la explosión de la computación en la nube ya que es ahí donde nacieron numerosas iniciativas de analytics que hoy son referencia y donde el cómputo consume almacenamiento de objetos directamente.
 
 ---
-To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2020%2F09%2F29%2FHARK_en_StorageGRID.html" target="_blank">here</a>.
+To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2020%2F10%2F01%2FHARK_en_StorageGRID.html" target="_blank">here</a>.
 
 ---   
 
