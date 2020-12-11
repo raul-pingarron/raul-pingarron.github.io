@@ -43,8 +43,9 @@ En la actualidad un clúster de ONTAP puede escalar hasta 24 controladoras o nod
 Un pipeline de datos de Analytics/AI de principio  a fin con NetApp podría ser, a muy alto nivel, como sigue: 
 
 <p align="center">
-  <img src="/images/posts/ONTAP_AI_pipeline.jpg">
+    <a href="/images/posts/ONTAP_AI_pipeline.jpg" target="_blank"><img src="/images/posts/ONTAP_AI_pipeline.jpg"></a>
 </p>
+
 
 ## ¿Qué beneficios aporta ONTAP?
    
@@ -69,7 +70,7 @@ ONTAP lleva proporcionando funcionalidades avanzadas de gestión del dato desde 
 Todos los entornos, sistemas y clientes empleados en Big Data Analytics e Inteligencia Artificial soportan de manera nativa los protocolos NFS y S3 que ONTAP proporciona. Esto significa que a la hora de integrar una solución ONTAP en nuestro datalake no es necesario reescribir código y cambiar las aplicaciones. Además, el soporte multiprotocolo de ONTAP permite compartir información, filesystems, conjuntos de datos, etc. con otro tipo de clientes y aplicaciones que utilicen SMB y CIFS eliminando silos de datos y facilitando la colaboración (algo fundamental en data science). A modo de ejemplo, Apache Spark y Hadoop MapReduce pueden leer y escribir a filesystems compartidos por NFS en ONTAP de manera transparente y con un adecuado rendimiento utilizando llamadas estándar del sistema de archivos y aprovechando el cliente NFS del kernel sin necesidad de reconfiguración; de la misma manera ocurre con el cliente nativo S3 que se incorpora en estos entornos y que permite la E/S a buckets S3 de ONTAP.
 
 <p align="center">
-  <img src="/images/posts/ONTAP_Analytics+IA_Multi-cloud.jpg">
+    <a href="/images/posts/ONTAP_Analytics+IA_Multi-cloud.jpg" target="_blank"><img src="/images/posts/ONTAP_Analytics+IA_Multi-cloud.jpg"></a>
 </p>
 
 
