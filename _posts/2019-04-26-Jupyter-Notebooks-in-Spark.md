@@ -1,7 +1,7 @@
 ---
 layout: post
 type: posts
-title: How to run Jupyter Notebooks in Spark
+title: How to run Jupyter Notebooks in Spark (Part 1)
 date: '2019-04-26T23:55:00.000+02:00'
 author: Raul Pingarron
 tags:
