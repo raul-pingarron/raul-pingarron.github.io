@@ -7,14 +7,14 @@ author: Raul Pingarron
 tags:
 - BigData
 ---
-Este post es una continuación del <a href="https://raul-pingarron.github.io/2019/04/26/Jupyter-Notebooks-in-Spark.html" target="_blank">anterior</a>, en el que describí una de las posibilidades de ejecutar Notebooks de Jupyter. En este vamos a ver una aproximación más abierta utilizando **Apache Livy** y **SparkMagic**. 
+Este post es una continuación del <a href="https://raul-pingarron.github.io/2019/04/26/Jupyter-Notebooks-in-Spark.html" target="_blank">anterior</a>, en el que se detalló una de las posibilidades para poder ejecutar código contra un clúster de Spark desde Notebooks de Jupyter. En este post vamos a ver una aproximación más abierta utilizando **Apache Livy** y **SparkMagic**. 
 
 ---
-To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2020%2F09%2F29%2FHARK_en_ONTAP.html" target="_blank">here</a>.
+To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2020%2F06%2F21%2FJupyter-Notebooks-Spark-Parte2.html" target="_blank">here</a>.
 
 ---   
 
-La aproximación más versátil para ejecutar código interactivo de un Notebook de Jupyter en un clúster de Apache Spark es utilizar <a href="https://raul-pingarron.github.io/2019/04/26/Jupyter-Notebooks-in-Spark.html" target="_blank">**Livy**</a>, la API REST de Apache Spark.
+La aproximación más versátil para ejecutar código interactivo desde un Notebook de Jupyter en un clúster de Apache Spark es utilizar <a href="https://raul-pingarron.github.io/2019/04/26/Jupyter-Notebooks-in-Spark.html" target="_blank">**Livy**</a>, la API REST de Apache Spark.
 
 <p align="center">
   <img src="/images/posts/Livy_logo.png" width="180" height="67">
@@ -44,7 +44,7 @@ Manos a la obra:
 Es un paso que, dependiendo de la distribución que se use, puede resultar muy sencillo. Aquí dejo algunos enlaces:
 - La documentación para Hortonworks está en <a href="https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/configuring-zeppelin/content/configuring_livy_on_an_ambari-managed_cluster.html" target="_blank">este enlace</a>.
 - Para instalar Livy en Cloudera hay que compilarlo y configurarlo siguiendo las instrucciones de este <a href="https://github.com/cloudera/livy" target="_blank">otro enlace</a>. 
-- Pasos para entornos Azure HDInsights los pasos están <a href="https://docs.microsoft.com/es-es/azure/hdinsight/spark/apache-spark-jupyter-notebook-install-locally" target="_blank">aquí</a>. 
+- Los pasos para entornos Azure HDInsights están <a href="https://docs.microsoft.com/es-es/azure/hdinsight/spark/apache-spark-jupyter-notebook-install-locally" target="_blank">aquí</a>. 
 - La <a href="https://enterprise-docs.anaconda.com/en/latest/admin/advanced/config-livy-server.html" target="_blank">página</a> de Anaconda Enterprise tiene también unas instrucciones muy completas.
  - Para más detalles referirse a la <a href="https://livy.apache.org/" target="_blank">documentación oficial de Apache Livy</a>.
 
@@ -94,7 +94,7 @@ Y comprobamos en el UI del servidor Livy:
 Livy ya estaría listo.
 
 ## PASO 2: Instalar y configurar SparkMagic en el nodo de JupyterLab  
-Si tenemos instalado Conda o Anaconda seguimos estos pasos (en caso contrario utilizamos `pip` por ejemplo):
+Si tenemos instalado Conda o Anaconda seguimos estos pasos (en caso contrario utilizamos `pip`, por ejemplo):
 
 Instalamos SparkMagic y su widget o extensión para los Notebooks de Jupyter:
 
@@ -166,7 +166,7 @@ Enabling: sparkmagic
 
 ## Test final:
 
-Abrimos un nuevo Notebook con un kernel de PySpark:
+Abrimos un nuevo Notebook con un kernel de PySpark y probamos:
 
 <p align="center">
   <a href="/images/posts/SparkMagic_NB.jpg" target="_blank"> <img src="/images/posts/SparkMagic_NB.jpg"> </a>
