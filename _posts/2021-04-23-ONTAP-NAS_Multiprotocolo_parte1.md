@@ -10,7 +10,7 @@ tags:
 Si alguna vez te has preguntado cómo funciona el acceso multiprotocolo NAS en ONTAP, o bien estás buscando una solución NAS multiprotocolo, puede que este post, eminentemente teórico, sea lo que andabas buscando...  
   
 ---
-To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2021%2F04%2F23%2FONTAP-NAS_Multiprotocolo.html" target="_blank">here</a>.
+To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2021%2F04%2F23%2FONTAP-NAS_Multiprotocolo_parte1.html" target="_blank">here</a>.
 
 ---   
 
