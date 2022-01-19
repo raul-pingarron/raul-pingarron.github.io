@@ -10,7 +10,7 @@ tags:
 En este post, continuación del anterior, vamos a ver algún ejemplo práctico sencillo de acceso NAS multiprotocolo. Es posible obtener más información y detalles sobre el funcionamiento del acceso multiprotocolo NAS en ONTAP, así como las mejores prácticas al respecto, en el Technical Report <a href="https://www.netapp.com/pdf.html?item=/media/27436-tr-4887.pdf" target="_blank">TR-4887</a> que NetApp tiene publicado, y que es excelente.  
   
 ---
-To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2021%2F04%2F23%2FONTAP-NAS_Multiprotocolo_parte2.html" target="_blank">here</a>.
+To read a (bad) English Google-translated version of this post click <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=https%3A%2F%2Fraul-pingarron.github.io%2F2021%2F04%2F30%2FONTAP-NAS_Multiprotocolo_parte2.html" target="_blank">here</a>.
 
 ---   
 
