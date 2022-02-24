@@ -26,8 +26,8 @@ En este post solo vamos a tratar la configuración de esta segunda pata del fan-
 
 ## Pasos
 
-Se asume que en el clúster de producción se tiene definida una política de snapshot que está aplicada al volumen origen (primario). Esta política tiene definidas etiquetas de snapmirror (horario, diario, semanal) para los snapshots que serán utilizadas por SnapVault para identificar estos snapshots y replicarlos al destino.
-En nuestro caso, se desean mantener periodos de retención bajos para los snapshots en el clúster de producción (primario), así que se define una retención en la política local de snapshots de 8 horarios, 7 diarios y 2 semanales. 
+Se asume que en el clúster de producción se tiene definida una política de snapshot que está aplicada al volumen origen (primario). Esta política tiene definidas etiquetas de snapmirror (horario, diario, semanal) para los snapshots, y serán utilizadas por SnapVault para identificar estos snapshots y replicarlos al destino.
+En nuestro caso, se desea mantener un periodo de retención corto para los snapshots en el clúster de producción (primario), así que se define una retención en la política local de snapshots de 8 horarios, 7 diarios y 2 semanales. 
 
 Por ejemplo:
 
