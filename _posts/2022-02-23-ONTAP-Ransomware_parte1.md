@@ -7,7 +7,7 @@ author: Raul Pingarron
 tags:
 - Data Storage
 ---
-Los ataques de ransomware están a la orden del día y la ciber-resiliencia en un sistema de almacenamiento y gestión de la información es un factor determinante en la elección de toda solución. Esto aplica especialmente a aquellos sistemas en los que residen datos de usuario, datos no estructurados o semi-estructurados, y cualquier tipo de dato sensible. 
+Los ataques de ransomware están a la orden del día y la ciber-resiliencia de un sistema de almacenamiento y gestión de la información es un factor determinante en la elección de toda solución. Esto aplica especialmente a aquellos sistemas en los que residen datos de usuario, datos no estructurados o semi-estructurados, y cualquier tipo de dato sensible. 
 ONTAP de NetApp es uno de los sistemas operativos de almacenamiento pioneros en implantar una aproximación de tipo "nula confianza" en sus mecanismos para securizar el acceso y servicio del dato, y también es una referencia en la industria por sus funcionalidades adicionales de salvaguarda del dato que le confieren una ciber-resiliencia única en su clase.
 
 ---
