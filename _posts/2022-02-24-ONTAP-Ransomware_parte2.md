@@ -22,7 +22,7 @@ Como vimos en el anterior post, el diagrama general a alto nivel de la estrategi
 
 Como se puede observar en la imagen, se trata de un despliegue de SnapMirror en fan-out, es decir, de un mismo origen salen dos réplicas hacia dos sistemas distintos: uno para DR tradicional, que utiliza SVM-DR de SnapMirror, y otro como backup off-site inmutable e imborrable (logical Air Gap), que es el que utiliza SnapVault con SnapLock.
 
-En este post solo vamos a tratar la configuración de esta seguna pata de del fan-out, es decir, de la configuración de SnapVault con SnapLock
+En este post solo vamos a tratar la configuración de esta segunda pata del fan-out, es decir, de la configuración de SnapVault con SnapLock.
 
 ## Pasos
 
